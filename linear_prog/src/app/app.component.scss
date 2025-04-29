@@ -1,0 +1,246 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+  }
+
+  :root {
+    font-size: 6px;
+  }
+
+  .root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+
+  .input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .input-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                Ubuntu, Cantarell, sans-serif;
+    font-size: 0.5rem;
+    color: #000000;
+    margin-bottom: 0.2rem;
+  }
+
+  .input-field {
+    width: 3rem;
+    height: 1.5rem;
+    text-align: center;
+    border: 1px solid #3a86ff;
+    border-radius: 0.3rem;
+    background-color: rgba(58, 134, 255, 0.1);
+    color: #000000;
+    font-size: 0.5rem;
+  }
+
+  .input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .operator-select {
+    background-color: rgba(58, 134, 255, 0.1);
+    color: #000000;
+    border: 0.4px solid #3a86ff;
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+    font-size: 0.6rem;
+    margin-top: 0.8rem;
+    width: 2.3rem;
+    text-align: center;
+  }
+
+  .brand {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                Ubuntu, Cantarell, sans-serif;
+    font-size: 0.5rem;
+    color: #000000;
+    text-align: right;
+    margin-top: 0.5rem;
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  .operator {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                Ubuntu, Cantarell, sans-serif;
+    font-size: 0.3rem;
+    color: #000000;
+    margin-top: 0.8rem;
+  }
+
+  .title-container {
+    height: 100%;
+    width: 100%;
+    padding-top: 0.4rem;
+    box-sizing: border-box;
+  }
+
+  .main-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                Ubuntu, Cantarell, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin: 0 auto;
+    max-width: 50rem;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .main-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6.25rem;
+    height: 0.1rem;
+    margin: 0rem;
+    padding: 0rem;
+    background: linear-gradient(90deg, #3a86ff, #8338ec);
+    border-radius: 0.125rem;
+  }
+
+  .content {
+    flex: 1;
+    width: 100%;
+    padding: 0rem;
+    margin-top: 0.6rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  .scroll-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .scroll-boxes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    width: 80%;
+    max-width: 600px;
+  }
+
+  .div-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin: 0.5rem 0;
+
+  }
+
+  .constraints-box {
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 0rem;
+    padding-bottom: 2rem;
+    border-radius: 5px;
+    font-size: 0.5rem;
+    line-height: 1.3;
+    text-align: center;
+    background-color: rgba(58, 134, 255, 0.1);
+    border: 1px  #3a86ff;
+  }
+
+  .constraints-box p {
+    color: #000000;
+  }
+
+  .constraints-box {
+    background-color: rgba(131, 56, 236, 0.1);
+    border: 0.2px #8338ec;
+  }
+
+  .constraints-box h3 {
+    text-align: center;
+    margin-bottom: 0.6rem;
+    font-size: 0.6rem;
+    color: #000000;
+  }
+  .optimization-title{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 0.6rem;
+    margin-top: 0.6rem;
+    font-size: 0.6rem;
+    color: #000000;
+  }
+
+  .constraints-box::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 3rem;
+  }
+
+  .constraints-box::-webkit-scrollbar-thumb {
+    background: #3a86ff;
+    border-radius: 3rem;
+  }
+
+  .constraints-box::-webkit-scrollbar-thumb {
+    background: #8338ec;
+    border-radius: 3rem;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  ::ng-deep button[mat-flat-button] {
+    background-color: rgb(0, 0, 0) !important;
+    color: rgb(255, 255, 255) !important;
+    border-radius: 0.5rem;
+    font-size: 0.5rem;
+    padding: 0.3rem 1.5rem !important;
+    min-width: 120px !important;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  }
+
+  ::ng-deep .mat-button-wrapper {
+    color: black !important;
+    font-weight: 400;
+  }
+  .input-field{
+    -webkit-appearance: none;
+  }
