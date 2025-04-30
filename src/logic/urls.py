@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from linear_prog.views import solve_optimization
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+    path('api/solve-optimization/', solve_optimization, name='solve_optimization'),
 ]

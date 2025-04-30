@@ -8,18 +8,19 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { provideHttpClient } from '@angular/common/http';
+
 
 interface Constraint {
-  x1: number;
-  x2: number;
+  coef: number[];
   operator: string;
   constant: number;
 }
 
-interface OptimizationData {
+export interface OptimizationData {
   objective: {
-    x1: number;
-    x2: number;
+    coef: number[];
+    operator: string;
     constant: number;
   };
   constraints: Constraint[];
@@ -39,15 +40,15 @@ interface OptimizationData {
     CommonModule
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   optimizationForm!: FormGroup;
   constraints: Constraint[] = [];
   displayedConstraints: string[] = [];
 
-  constructor(private fb: FormBuilder) {}
-
+  constructor(private fb: FormBuilder, private service: ServiceService) {}
+  
   ngOnInit() {
     this.optimizationForm = this.fb.group({
       objective: this.fb.group({
@@ -86,25 +87,32 @@ export class AppComponent {
   calcular() {
     if (this.optimizationForm.valid) {
       const formValue = this.optimizationForm.value;
+  
       const optimizationData: OptimizationData = {
         objective: {
-          x1: formValue.objective.x1,
-          x2: formValue.objective.x2,
+          coef: [formValue.objective.x1, formValue.objective.x2],
+          operator: formValue.objective.operator,
           constant: formValue.objective.constant
         },
-        constraints: formValue.constraints
+        constraints: formValue.constraints.map((c: any) => ({
+          coef: [c.x1, c.x2],
+          operator: c.operator,
+          constant: c.constant,
+        }))
       };
 
-      //console.log('Dados para cálculo:', optimizationData);
-      // enviar os dados para o serviço
-      // this.serviceService.calculate(optimizationData).subscribe(...);
-
+      console.log(optimizationData);
+  
+      this.service.sendOptData(optimizationData).subscribe(response => {
+        console.log('Resposta da API:', response);
+      });
+  
       this.updateDisplayedConstraints();
     }
   }
 
   resultado() {
-    // Implemente a lógica para mostrar os resultados
+    
     console.log('Mostrando resultados...');
   }
 
